@@ -19,7 +19,7 @@
 # along with PrawnOS.  If not, see <https://www.gnu.org/licenses/>.
 
 
-KVER=4.17.2
+KVER=4.19.13
 
 #Ensure Sudo
 if [ ! $UID = "0" ]
@@ -80,7 +80,7 @@ create_image PrawnOS-Alpha-c201-libre-2GB.img $outdev 50M 40 $outmnt
 
 # install Debian on it
 export DEBIAN_FRONTEND=noninteractive
-qemu-debootstrap --arch armhf stretch --include locales,init --keyring=$build_resources/debian-archive-keyring.gpg $outmnt http://ftp.us.debian.org/debian
+qemu-debootstrap --arch armhf buster --include locales,init --keyring=$build_resources/debian-archive-keyring.gpg $outmnt http://ftp.us.debian.org/debian
 chroot $outmnt passwd -d root
 
 
